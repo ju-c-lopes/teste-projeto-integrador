@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row my-4 text-center">
+    <h1 class="display-8 font-weight-bold">Cadastro das disciplinas aplicadas e o resumo da aula dada</h1>
+</div>
+<br>
+
+<div class="card text-left px-0">
+    <h4 class="card-header">Selecione os filtros para facilitar a busca</h4>
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            <fieldset class="list-form">
+                <div class="row">
+                    <div class="form-group col-sm-12 col-md-12 col-lg-6 d-flex justify-content-between">
+                        <label for="turma">Turma</label>
+                        <select name="turma" id="turma" class="select-box" required>
+                            <option value="">Selecione</option>
+                            <option value="primeiro ano">1° Ano</option>
+                            <option value="segundo ano">2° Ano</option>
+                            <option value="terceiro ano">3° Ano</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 d-flex justify-content-between">
+                        <label for="habilidade">Código Habilidade</label>
+                        <select name="habilidade" id="habilidade" class="select-box">
+                            <option value="">Selecione</option>
+                            {% for cod in codigos %}
+                            <option value="{{ cod }}">{{ cod }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6 d-flex justify-content-between">
+                        <label for="disciplina">Disciplina</label>
+                        <select name="disciplina" id="disciplina" class="select-box" required>
+                            <option value="">Selecione</option>
+                            <option value="Português">Português</option>
+                            <option value="Matemática">Matemática</option>
+                            <option value="História">História</option>
+                        </select>
+                    </div>
+
+                    <div class="col-sm-12 col-md-12 col-lg-6 d-flex justify-content-between">
+                        <label for="descricao">Descrição Habilidade</label>
+                        <input type="text" name="descricao" id="descricao" placeholder="Digite palavras-chave">
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit" class="disciplina--submit pull-right btn btn-primary"> Aplicar </button>
+        </form>
+    </div>
+</div>
+
+<div class="row mt-5 mb-5">
+    <div class="tabela-resultados text-md-left">
+        <p>
+            Sua busca retornou <strong>
+                {{ cont }}</strong>
+            resultados
+        </p>
+
+        <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th class="cel1">Disciplina</th>
+                    <th class="cel2">Código Habilidade</th>
+                    <th class="cel3">Descrição Habilidade</th>
+                    <th class="cel4">Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for ret in retorno %}
+                <tr>
+                    {% load static %}
+                    <td class="cel1">{{ ret.disciplina.title }}</td>
+                    <td class="cel2">{{ ret.cod_hab }}</td>
+                    <td class="cel3">{{ ret.descricao }}</td>
+                    <td class="cel4">
+                        <form action="./mais-info/" method="get">
+                            <input type="hidden" name="disciplina" value="{{ ret.disciplina }}">
+                            <input type="hidden" name="cod_hab" value="{{ ret.cod_hab }}">
+                            <input type="hidden" name="descricao" value="{{ ret.descricao }}">
+                            <input type="hidden" name="turma" value="{{ ret.turma }}">
+                            <button class="bt-edit" type="submit"><img src="{% static './img/lapis.png' %}"
+                                    alt=""></button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="adicional">
+
+    <table>
+        <thead>
+            <tr>
+                <th class="cel1">Disciplina</th>
+                <th class="cel2">Código Habilidade</th>
+                <th class="cel3">Descrição Habilidade</th>
+                <th class="cel4">Turma</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="cel1">{{ disciplina }}</td>
+                <td class="cel2">{{ cod_hab }}</td>
+                <td class="cel3">{{ descricao }}</td>
+                <td class="cel4">{{ turma }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form class="form-adicional" action="/salvar/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="disciplina" value="{{ disciplina }}">
+        <input type="hidden" name="cod_hab" value="{{ cod_hab }}">
+        <input type="hidden" name="descricao" value="{{ descricao }}">
+        <input type="hidden" name="turma" value="{{ turma }}">
+
+        <div class="adicional-div-form">
+            <div>
+                <label for="fluxo">Fluxo:</label>
+                <textarea name="fluxo" id="fluxo" cols="30" rows="10" placeholder="Descreva como foi o fluxo da aula"></textarea>
+            </div>
+
+            <div>
+                <label for="adicionais">Informações Adicionais:</label>
+                <textarea name="adicionais" id="adicionais" cols="30" rows="10" placeholder="Digite informações que julgue importantes"></textarea>
+            </div>
+        </div>
+
+        <input class="bt-salvar" type="submit" value="Salvar">
+    </form>
+
+</div>
+
+{% endblock %}

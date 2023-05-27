@@ -1,0 +1,112 @@
+.div-cadastro {
+    bottom: 50px;
+}
+
+.list-form {
+    grid-template-columns: 2fr 2fr auto;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.list-form div {
+    padding: 1em;
+}
+
+.list-form div label {
+    font-size: 2em;
+}
+
+.select-box, #descricao {
+    width: 20em;
+}
+
+.disciplina--submit {
+    width: 20%;
+    border: none;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.box3 {
+    grid-column-start: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+}
+
+table {
+    width: 100%;
+    border-top: 1px gray solid;
+    border-bottom: 1px gray solid;
+    border-left: 1px gray solid;
+    border-right: 1px gray solid;
+}
+
+thead {
+    border-bottom: 1px gray solid;
+}
+
+th {
+    background-color: #b0b0b0;
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+.cel1, .cel2, .cel4 {
+    width: 20%;
+}
+
+.cel3 {
+    width: 40%;
+}
+
+.bt-edit {
+    background-color: transparent;
+    border: none;
+}
+
+.tabela-resultados {
+    padding-bottom: 20vh;
+}
+
+.salvo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.adicional-div-form {
+    margin-top: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+.adicional-div-form div {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.adicional-div-form div label {
+    margin-right: 3vw;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.form-adicional {
+    display: block;
+}
+
+.bt-salvar {
+    margin: 5vh 5vw 0 90vw;
+    background-color: #E8B930;
+    width: 6em;
+    border: none;
+    border-radius: 5px;
+    padding: 1em;
+}

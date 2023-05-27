@@ -1,0 +1,7 @@
+.btn-primary {
+    --bs-btn-color: black !important;
+    --bs-btn-bg: var(--bncc-yellow) !important;
+    --bs-btn-border-color: var(--bncc-yellow) !important;
+    --bs-btn-hover-bg: var(--bncc-blue) !important;
+    --bs-btn-hover-border-color: var(--bncc-blue) !important;
+}

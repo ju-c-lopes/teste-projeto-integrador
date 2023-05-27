@@ -1,0 +1,48 @@
+.titulo {
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: -10vh auto;
+    text-align: center;
+}
+
+/* --------- Start Cadastro-Usuario --------- */
+.cadastro-usuario {
+    color: #464444;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20vh 20vw auto 20vw;
+}
+
+/* ========== start main ========== */
+.cadastro-usuario main {
+    width: 35%;
+}
+
+/* ========== start Fieldset Formulario ========== */
+.formulario {
+    padding: 2em;
+}
+
+.campo {
+    padding: 1vh 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lab-prof-eventual {
+    margin-left: 2.5vw;
+}
+
+.cadastro-usuario--submit {
+    margin: 0 auto;
+    background-color: #E8B930;
+    width: 60%;
+    border: none;
+    border-radius: 5px;
+    padding: 2% 2vh;
+}
+/* ========== end Fieldset Formulario ========== */
+/* ========== end main ========== */

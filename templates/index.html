@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    {% if not request.user.is_authenticated %}
+        Não Conectado
+    {% else %}
+        Conectado como {{ request.user }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mb-5 col-sm-12 col-md-12 col-lg-6 d-flex flex-column">
+    <h1 class="display-8 font-weight-bold">Portal de Gerenciamento de Aulas e Aplicação das Habilidades de
+        Conhecimento</h1>
+    <h5 class="mt-4 text-justify">Motivada pela necessidade de se estabelecer um conjunto básico de aprendizagens essenciais
+        aos estudantes brasileiros, conforme estabelecido na Lei nº13.415/2017, foi criada a Base
+        Nacional Comum Curricular (BNCC). A BNCC caracteriza-se como um documento normativo
+        cujo intuito é definir um conjunto básico de aprendizagens que devem ser desenvolvidas pelos
+        estudantes brasileiros ao longo do período de educação básica.</h5>
+    {}
+    <a class="mt-5 btn btn-primary mt-2 w-100" href="{% url 'signup' %}">Cadastre-se</a>
+</div>
+
+<div class="col-sm-12 col-md-12 col-lg-6">
+    <img class="img-fluid rounded" src="{% static 'img/landing.png' %}" alt="Bem-vindo">
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+<!-- This loads of all of files that you call below from your 'static' folder -->
+{% load static %}
+<!--The static folder consists of your bootstrap files (.css, .js, fonts, etc)-->
+<!--When you load the static folders is calls all those folders in the static files without having to code each one in individually-->
+
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head-meta %}
+  	<meta charset="utf-8">
+  	<!--Add keywords that describe your project between the quotation marks. This helps search engines find and index your content-->
+    <meta name="keywords" content="BNCC, Currículo Paulista">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
+
+    {% block head-css %}
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" media="screen">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/custom.css' %}" rel="stylesheet" media="screen">
+    
+    <link rel="stylesheet" type="text/css" href="{% static './css/base.css' %}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static './css/header.css' %}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static './css/footer.css' %}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static './css/index.css' %}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static './css/about-us.css' %}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static './css/cadastro.css' %}" media="all">
+    <link rel="stylesheet" type="text/css" href="{% static './css/listagens.css' %}" media="all">
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="container-fluid vh-100">
+
+    <div class="d-flex flex-column">
+
+    <!-- Cabeçalho da página com opções de menu e login -->
+    <div class="row">
+        {% include "header.html" %}
+    </div>
+    
+    <!-- Chama o conteúdo principal da tela -->
+    <div class="row mt-5 px-5 mb-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Chama o template para o footer -->
+    <div class="row">
+        {% include "footer.html" %}
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    {% block head-javascript %}
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    {% endblock %}
+</body>
+</html>
